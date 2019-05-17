@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h3 id="demo">{{ msg }}</h3>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"生命周期函数第一个beforeCreate"
+        },
+        methods:{
+            getData(){
+                console.log("我执行了吗")
+            }
+        },
+        // 此时，只是在内存中，渲染好了模板，并没有把模板挂载到真正的页面中去
+        mounted(){
+            console.log(document.getElementById('demo').innerText) // 生命周期函数第一个beforeCreate
+        }
+    })
+
+</script>

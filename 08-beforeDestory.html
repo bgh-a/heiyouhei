@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="change">改变显示的值</button>
+        <h3 id="demo">{{ msg }}</h3>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"生命周期函数第一个beforeCreate"
+        },
+        methods:{
+            getData(){
+                console.log("我执行了吗")
+            },
+            change(){
+                this.msg = "我改变了"
+            }
+        },
+       beforeDestory(){
+           // 当执行beforeDestroy钩子函数的时候，Vue实例就已经从运行阶段，进入到了销毁阶段：
+        //    当执行 beforeDestroy 的时候，实例身上所有data 和 所有的 methods，以及过滤器、指令。。。都处于可用状态，此时还没有真正上的销毁过程
+       },
+       destoryed(){
+           // data 方法、过滤器、... 都已经不能使用了
+       }
+    })
+
+</script>

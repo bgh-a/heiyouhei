@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"生命周期函数第一个beforeCreate"
+        },
+        methods:{
+            getData(){
+                console.log("我执行了吗")
+            }
+        },
+        // 在created 中，data和methods都已经被初始化好了
+        created(){
+            console.log(this.msg); // 生命周期函数第一个beforeCreate
+            this.getData() // 我执行了吗
+
+        }
+    })
+
+</script>

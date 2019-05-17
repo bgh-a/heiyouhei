@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"生命周期函数第一个beforeCreate"
+        },
+        methods:{
+            getData(){
+                console.log("我执行了吗")
+            }
+        },
+        // 注意：在beforeCreate生命周期函数执行的时候，data和methods中的数据都还没有初始化
+        beforeCreate(){
+            // 表示实例完全被创建出来的时候自动执行
+            console.log(this.msg) // undefined
+            this.getData();  // this.getData is not a function
+        }
+    })
+
+</script>

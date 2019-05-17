@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="change">改变显示的值</button>
+        <h3 id="demo">{{ msg }}</h3>
+    </div>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"生命周期函数第一个beforeCreate"
+        },
+        methods:{
+            getData(){
+                console.log("我执行了吗")
+            },
+            change(){
+                this.msg = "我改变了"
+            }
+        },
+        // 得出结论：当执行beforeUpdate的时候，页面中的显示的数据，还是旧的，此时 data 数据是最新的，页面尚未和 最新的数据保持同步
+       beforeUpdate(){
+            console.log("我是页面中的msg值:"+document.getElementById('demo').innerText);
+            console.log("data 中的 msg 数据是:" + this.msg)
+       }
+    })
+
+</script>
